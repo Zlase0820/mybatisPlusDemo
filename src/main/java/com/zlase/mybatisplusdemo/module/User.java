@@ -1,9 +1,6 @@
 package com.zlase.mybatisplusdemo.module;
 
-import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,6 +18,8 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class User {
+    // 自增id  IdType.AUTO  但是要求数据库字段也配置成自增
+    // 雪花算法（分布式用的较多）
     @TableId(type = IdType.AUTO)
     private Long id;
 
@@ -28,9 +27,19 @@ public class User {
     private String age;
     private String email;
 
+    // 创建时自动插入
     @TableField(fill = FieldFill.INSERT)
     private Date createTime;
 
+    // 更新文件时自动更新
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private Date updateTime;
+
+    // 乐观锁注解，需要写一个配置
+    @Version
+    private Integer version;
+
+    // 逻辑删除标识符，后续再 .yaml 中进行配置即可
+    @TableLogic
+    private Integer deleteSign;
 }

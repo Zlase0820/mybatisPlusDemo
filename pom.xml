@@ -43,6 +43,13 @@
             <artifactId>h2</artifactId>
         </dependency>
 
+        <!--MybatisPlus代码自动生成器-->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-generator</artifactId>
+            <version>3.4.1</version>
+        </dependency>
+
         <!--MySql连接驱动-->
         <dependency>
             <groupId>mysql</groupId>
@@ -53,6 +60,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-annotations</artifactId>
+            <version>1.6.2</version>
         </dependency>
     </dependencies>
     <build>
@@ -71,5 +84,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

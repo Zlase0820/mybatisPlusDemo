@@ -10,3 +10,10 @@ spring:
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  # 配置乐观锁删除
+  global-config:
+    db-config:
+      logic-delete-field: deleteSign
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
